@@ -61,6 +61,8 @@ unsigned int faStr3(const char* str) {
             flagInWord = 0;
         }
     }
+    if (flagInWord != 0)
+        countWord++;
 
     float average = sumChar / countWord;
     if ((average - static_cast<int>(average)) >= 0.5)
