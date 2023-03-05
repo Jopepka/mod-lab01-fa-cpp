@@ -30,8 +30,8 @@ unsigned int faStr2(const char* str) {
     int flagSpace = 1;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] >= 'А' && str[i] <= 'Я' && flagSpace != 0) flagCorrectWord = 1;
-        if (str[i] >= 'A' && str[i] <= 'я') {
+        if (str[i] >= 'A' && str[i] <= 'Z' && flagSpace != 0) flagCorrectWord = 1;
+        if (str[i] >= 'A' && str[i] <= 'z') {
             flagSpace = 0;
         }
         else if (str[i] != ' ') flagCorrectWord = 0;
