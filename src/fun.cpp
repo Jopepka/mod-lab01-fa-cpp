@@ -29,7 +29,7 @@ unsigned int faStr2(const char* str) {
     int flagSpace = 1;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] >= 'A' && str[i] <= 'Z' && flagSpace != 0) 
+        if (str[i] >= 'A' && str[i] <= 'Z' && flagSpace != 0)
             flagCorrectWord = 1;
         if (str[i] >= 'A' && str[i] <= 'z') {
             flagSpace = 0;
@@ -63,7 +63,7 @@ unsigned int faStr3(const char* str) {
     }
 
     float average = sumChar / countWord;
-    if ((average - static_cast<int>(average)) >= 0.5) {
+    if ((average - static_cast<int>(average)) >= 0.5)
         return static_cast<int>(average) + 1;
     return static_cast<int>(average);
 }
