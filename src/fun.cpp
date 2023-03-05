@@ -1,14 +1,70 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 
-unsigned int faStr1(const char *str) {
-    return 1;
+unsigned int faStr1(const char* str) {
+    int count = 0;
+    int flag1 = 0, flag2 = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+
+        if ('0' <= str[i] && str[i] <= '9') {
+            flag1 = 1;
+        }
+
+        if (str[i] != ' ') {
+            flag2 = 1;
+        }
+
+        if (str[i] == ' ' && flag2 == 1) {
+            if (flag1 == 0)
+                count++;
+            flag1 = 0;
+            flag2 = 0;
+        }
+    }
+    return count;
 }
 
-unsigned int faStr2(const char *str) {
-    return 0;
+unsigned int faStr2(const char* str) {
+    int count = 0;
+    int flagCorrectWord = 0;
+    int flagSpace = 1;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= 'А' && str[i] <= 'Я' && flagSpace != 0) flagCorrectWord = 1;
+        if (str[i] >= 'A' && str[i] <= 'я') {
+            flagSpace = 0;
+        }
+        else if (str[i] != ' ') flagCorrectWord = 0;
+        else {
+            if (flagCorrectWord == 1) {
+                count++;
+            }
+            flagSpace = 1;
+            flagCorrectWord = 0;
+        }
+    }
+    return count;
 }
 
-unsigned int faStr3(const char *str) {
-    return 0;
+unsigned int faStr3(const char* str) {
+    int countWord = 0;
+    int sumChar = 0;
+    int flagInWord = 0;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ' ') {
+            sumChar++;
+            flagInWord = 1;
+        }
+        if (str[i] == ' ') {
+            if (flagInWord != 0) countWord++;
+            flagInWord = 0;
+        }
+    }
+
+
+    if (((sumChar / countWord) - (int)(sumChar / countWord)) >= 0.5) {
+        return (int)(sumChar / countWord) + 1;
+    }
+    else return (int)(sumChar / countWord);
 }
