@@ -63,8 +63,7 @@ unsigned int faStr3(const char* str) {
     }
 
     float average = sumChar / countWord;
-    if ((average - static_cast<int>average) >= 0.5) {
+    if ((average - static_cast<int>(average)) >= 0.5) {
         return static_cast<int>(average) + 1;
-    } else 
-        return static_cast<int>(average);
+    return static_cast<int>(average);
 }
