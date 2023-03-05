@@ -5,7 +5,6 @@ unsigned int faStr1(const char* str) {
     int count = 0;
     int flag1 = 0, flag2 = 0;
     for (int i = 0; str[i] != '\0'; i++) {
-
         if ('0' <= str[i] && str[i] <= '9') {
             flag1 = 1;
         }
@@ -30,12 +29,13 @@ unsigned int faStr2(const char* str) {
     int flagSpace = 1;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] >= 'A' && str[i] <= 'Z' && flagSpace != 0) flagCorrectWord = 1;
+        if (str[i] >= 'A' && str[i] <= 'Z' && flagSpace != 0) 
+            flagCorrectWord = 1;
         if (str[i] >= 'A' && str[i] <= 'z') {
             flagSpace = 0;
-        }
-        else if (str[i] != ' ') flagCorrectWord = 0;
-        else {
+        } else if (str[i] != ' ') {
+            flagCorrectWord = 0;
+        } else {
             if (flagCorrectWord == 1) {
                 count++;
             }
@@ -62,9 +62,9 @@ unsigned int faStr3(const char* str) {
         }
     }
 
-
-    if (((sumChar / countWord) - (int)(sumChar / countWord)) >= 0.5) {
-        return (int)(sumChar / countWord) + 1;
-    }
-    else return (int)(sumChar / countWord);
+    float average = sumChar / countWord;
+    if ((average - static_cast<int>average) >= 0.5) {
+        return static_cast<int>(average) + 1;
+    } else 
+        return static_cast<int>(average);
 }
